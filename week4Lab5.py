@@ -7,3 +7,6 @@ whole_name = first_name + ' ' + last_name
 
 #Show users full name
 print('My full name is ' + whole_name)
+
+#this is the end of the program.
+input('Press Enter to close...')
