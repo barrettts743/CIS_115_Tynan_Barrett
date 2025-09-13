@@ -15,6 +15,3 @@ if (total) >= 0:
 
 else:
     print('The mathematical operation is <= 0')
-
-#this is the end of the program.
-input('Press Enter to close...')
