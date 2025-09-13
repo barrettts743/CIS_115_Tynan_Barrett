@@ -4,4 +4,4 @@ num2 = float(input('What is your second number: '))
 
 #find total value through division
 total = (num1)//(num2)
-print(total)
+print(int(total))
