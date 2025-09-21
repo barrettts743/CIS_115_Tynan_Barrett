@@ -1,11 +1,18 @@
-#this program allows user to enter 10 grade
-gradesEntered = input('How many grades do you want to enter? ')
+#this program allows user to enter 10 grades
+#ask user how many grades they want to enter
+x = 10
 
-#enter grade
-grade = input('Enter grade: ')
+#assign variables
+total = 0
+count = 0
+#use a while loop to get grades from user
+while count < x:
+    grade = float(input('Enter a grade: '))
+    #print out each grade after user enters them
+    print(f'You entered: {grade}')
+    #add each grade to total
+    total += grade
+    count += 1
 
-for gradesEntered in range(int(gradesEntered)):
-    grade = input('Enter grade: ')
-    print('You entered: ' + grade)
-    gradesEntered = gradesEntered + 1
-print('You entered ' + str(gradesEntered) + ' grades.')
+#Print out end statement
+print(f' The user has entered {x} grades and is now done.')
