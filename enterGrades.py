@@ -1,5 +1,5 @@
 #this program allows user to enter 10 grades
-#ask user how many grades they want to enter
+#assign number of grades to variable
 x = 10
 
 #assign variables
