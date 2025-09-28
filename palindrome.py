@@ -18,6 +18,5 @@ def main():
     else:
         print(f'Your word, {user_input}, is not a palindrome.')
 
-
 #call main function
 main()

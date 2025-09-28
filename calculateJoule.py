@@ -16,5 +16,6 @@ def main():
     #call the function
     energy = calculate_energy(mass, c)
     print(f'The energy produced is:', energy, 'Joules')
+
 #call main function
 main()

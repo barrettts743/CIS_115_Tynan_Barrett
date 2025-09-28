@@ -12,5 +12,6 @@ def main():
     #call function
     result = reverseMyString(userInput)
     print(f'Your reversed string is:', result)
+
 #call main function
 main()
