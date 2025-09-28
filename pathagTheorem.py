@@ -11,12 +11,12 @@ def calculate_hypotenuse(a, b):
 def main():
     #get user input
     side_a = float(input('Enter the length of side a: '))
-    print('You entered:', side_a)
+    print(f'You entered:', side_a)
     side_b = float(input('Enter the length of side b: '))
-    print('You entered:', side_b)
+    print(f'You entered:', side_b)
     #call the function
     hypotenuse = calculate_hypotenuse(side_a, side_b)
-    print('The length of the hypotenuse is:', hypotenuse)
+    print(f'The length of the hypotenuse is:', hypotenuse)
 
 #call main function
 main()
