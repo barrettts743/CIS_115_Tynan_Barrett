@@ -1,5 +1,6 @@
 #this program allows the user to calculate the energy
 #into Joules given the mass using formula E=mc^2
+import math
 # assign known variable
 c = 2.99 * 10**8
 

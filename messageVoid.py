@@ -3,5 +3,9 @@
 def print_message():
     print('Hello World!')
 
-#call the function
-print_message()
+#define the main function
+def main():
+    print_message()
+
+#call main function
+main()
