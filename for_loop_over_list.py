@@ -8,4 +8,7 @@ def getMyList():
 #assign list to variable
 myList = getMyList()
 for numbers in myList:
-    print(myList[-6])
+    print(numbers)
+
+ #print total of loop iterations
+print("The total number of loop iterations was:", len(myList))

@@ -4,3 +4,7 @@ def printWordList():
     myList = ['Apples', 'Bananas', 'Pears', 'Carrots']
     return myList
 
+#assign list to variable and loop over list
+wordList = printWordList()
+for word in wordList:
+    print(word)
