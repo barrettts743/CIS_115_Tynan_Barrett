@@ -1,5 +1,8 @@
 def userMain():
     print_dictionary()
+    print_result(myDictionary)
+    print(myDictionary[])
+    return
 
 #grab user information and store it in a dictionary
 
@@ -13,4 +16,11 @@ def print_dictionary():
     myDictionary = [firstName, lastName, city, state, zipCode, phoneNumber]
     return myDictionary
     
-#print any result from myDictionary
+#calling print_result function to print each value from myDictionary
+def print_result(myDictionary[]):
+    print("First Name: ", myDictionary[0])
+    print("Last Name: ", myDictionary[1])
+    print("City: ", myDictionary[2])
+    print("State: ", myDictionary[3])
+    print("Zip Code: ", myDictionary[4])
+    print("Phone Number: ", myDictionary[5])
