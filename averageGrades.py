@@ -1,23 +1,22 @@
+#this program calculates the average of five grades entered by a user
 
+#create the dictionary to hold the grade as well as the student name
+student_grades = {}
 
-student_grades = "grades"
-myDictionary = {student_grades: [input("Enter grade 1: "),
-                                 input("Enter grade 2: "), 
-                                 input("Enter grade 3: "),
-                                 input("Enter grade 4: "),
-                                 input("Enter grade 5: ")
-                                ]}
-def calculate_average(grades):
+#prompt the user for the student's name and grades to store in the dictionary
+for i in range(5):
+    name = input(f'Enter the name of student {i + 1}: ')
+    grade = float(input(f"Enter the grade for {name}: "))
+    student_grades[name] = grade
+
+#function to calculate the average grade
+def calulate_average_grade(grades_dict):
     total = 0
-    for grade in grades:
-        total += float(grade)
-    average = total / len(grades)
+    for grade in grades_dict.values():
+        total += grade
+    average = total / len(grades_dict)
     return average
 
-def print_result(myDictionary):
-    grades = myDictionary[student_grades]
-    average = calculate_average(grades)
-    print(f"The average grade is: {average:.2f}")
-    return
-
-print_result(myDictionary)
+#function to print the result
+average = calulate_average_grade(student_grades)
+print(f"The average grade for the entered students is: {average:.2f}")

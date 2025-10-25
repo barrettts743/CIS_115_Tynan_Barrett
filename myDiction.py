@@ -1,3 +1,4 @@
+#this program gathers up to 3 entries of names and addresses
 #create the array of dictionaries
 name_and_addresses = {
     "firstName": [],
