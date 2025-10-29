@@ -28,6 +28,6 @@ def validateCreditCard(ccNum):
         print('The credit card number is invalid. Please try again.')
         #invalid card retry
         return validateCreditCard(ccNum)
-
-#call main function
+    
+#call function to execute
 validateCreditCard('')
