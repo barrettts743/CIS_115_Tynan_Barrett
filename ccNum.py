@@ -21,6 +21,20 @@ def validateCreditCard(ccNum):
     #sum all the digits in both lists
     total = sum(oddDigits) + sum(evenDigits)
 
+    #determine if the credit card number is valid
+    if total % 10 == 0:
+        print('The credit card number is valid.')
+    else:
+        print('The credit card number is invalid. Please try again.')
+        #invalid card retry
+        return validateCreditCard(ccNum)
+
+#call main function
+validateCreditCard('')
+
+
+
+
 
 
 
