@@ -31,14 +31,3 @@ def validateCreditCard(ccNum):
 
 #call main function
 validateCreditCard('')
-
-
-
-
-
-
-
-
-
-
-
