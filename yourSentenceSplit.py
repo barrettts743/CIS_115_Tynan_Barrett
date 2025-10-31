@@ -4,7 +4,7 @@
 def word_frequency(yourSentence):
     #split the sentence into words
     words = yourSentence.split()
-    #initialize an empty dictionary to hold the word counts
+    #create an empty dictionary to hold word counts
     word_count = {}
     #count the frequency of each word in the sentence
     for word in words:
