@@ -42,14 +42,16 @@ else:
 print("-" * 40)
 #ask for shopper billing/shipping information
 print("Please enter your billing and shipping information.")
-full_name = input("Full Name: ")
+first_name = input("First Name: ")
+last_name = input("Last Name: ")
 address = input("Address: ")
 city = input("City: ")
 state = input("State: ")
 zip_code = input("Zip Code: ")
 #store shopper information in dictionary
 shopper_info = {
-    "full_name": full_name,
+    "first_name": first_name,
+    "last_name": last_name,
     "address": address,
     "city": city,
     "state": state,
