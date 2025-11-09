@@ -13,7 +13,6 @@ shopper_catalog = {1: "USB 128 GB drive - $12.00",
                    4: "Ring Camera Model 78 - $156.00",
                    5: "TCL Smart TV - $359.00"
                    }
-
 #create prompt for shopper to view product catalog and select item by product ID 
 print("-" * 40)
 print("Product Catalog" .center(40))
@@ -22,13 +21,11 @@ for product_id, details in shopper_catalog.items():
     print(f"{product_id} | {details}")
 print()
 print("-" * 40)
-
 #prompt shopper to select item by product ID and the quantity desired
 selected_product = int(input("Enter the Product ID of the item you wish to purchase: "))
 selected_quantity = int(input("Enter the quantity you wish to purchase: "))
 #confirm quantity is available in inventory
 available_qoh = (list(inventory_data[selected_product - 1])[4].split(": ")[1])
-
 print("-" * 40)
 #confirm shopper selection
 print(f"You have selected {selected_quantity} {shopper_catalog[selected_product]}.")
@@ -59,28 +56,14 @@ shopper_info = {
     "zip_code": zip_code
 }
 print("-" * 40)
-
-
-
 #proceed to have shopper enter payment details
 print("Please enter your payment details.")
 card_number = input("Card Number: ")
 expiry_date = input("Expiry Date (MM/YY): ")
 cvv = input("CVV: ")
-
-
-
-
-
-
-
-
-
 #calculate total cost of shopper selection
 item_price_str = shopper_catalog[selected_product].split(" - $")[1]
 item_price = float(item_price_str)
 total_cost = item_price * selected_quantity
 print(f"Your total cost is: ${total_cost:.2f}")
 print("-" * 40)
-
-
