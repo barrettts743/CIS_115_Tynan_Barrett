@@ -28,18 +28,21 @@ selected_quantity = int(input("Enter the quantity you wish to purchase: "))
 available_qoh = (list(inventory_data[selected_product - 1])[4].split(": ")[1])
 print("-" * 40)
 #confirm shopper selection
-print(f"You have selected {selected_quantity} {shopper_catalog[selected_product]}.")
+print(f"You have selected {selected_quantity} of {shopper_catalog[selected_product]}.")
 print("-" * 40)
+
 #prompt shopper to confirm purchase
-confirm_purchase = input("Do you wish to confirm your purchase? (yes/no): ").strip().lower()
-if confirm_purchase != 'yes':
-    print("Purchase cancelled.")
-    print("-" * 40)
-    exit()
-else:
-    print("Purchase confirmed.")
-    print("Please proceed to checkout.")
-print("-" * 40)
+def confirm_purchase():
+    confirm_purchase = input("Do you wish to confirm your purchase? (yes/no): ").strip().lower()
+    if confirm_purchase != 'yes':
+        print("Purchase cancelled.")
+        input("Enter another item you wish to purchase.")
+        return(confirm_purchase)
+    else:
+        print("Purchase confirmed.")
+        print("Please proceed to checkout.")
+        print("-" * 40)
+confirm_purchase()
 #ask for shopper billing/shipping information
 print("Please enter your billing and shipping information.")
 first_name = input("First Name: ")
@@ -60,9 +63,43 @@ shopper_info = {
 print("-" * 40)
 #proceed to have shopper enter payment details
 print("Please enter your payment details.")
-card_number = input("Card Number: ")
+#execute mod 10 check for cc number validation
+def validateCreditCard(ccNum):
+    ccNum = input("Enter your credit card number: ")
+    oddDigits= []
+    evenDigits = []
+    total = 0
+    #loop through the credit card number and separate the digits into odd and even lists
+    for i in range(len(ccNum)-1, -1, -1):
+        if (len(ccNum)-i) % 2 == 0:
+            evenDigits.append(int(ccNum[i]))
+        else:
+            oddDigits.append(int(ccNum[i]))
+
+    #double the even digits and if the result is greater than 9, subtract 9 from it
+    for i in range(len(evenDigits)):
+        evenDigits[i] = evenDigits[i] * 2
+        if evenDigits[i] > 9:
+            evenDigits[i] -= 9
+    #sum all the digits in both lists
+    total = sum(oddDigits) + sum(evenDigits)
+
+    #determine if the credit card number is valid
+    if total % 10 == 0:
+        print('The credit card number is valid.')
+    else:
+        print('The credit card number is invalid. Please try again.')
+        #invalid card retry
+        return validateCreditCard(ccNum)
+validateCreditCard('')
 expiry_date = input("Expiry Date (MM/YY): ")
 cvv = input("CVV: ")
+#confirm purchase to user
+print("Payment was successful.")
+#create invoice receipt for customer
+Print
+
+
 #calculate total cost of shopper selection
 item_price_str = shopper_catalog[selected_product].split(" - $")[1]
 item_price = float(item_price_str)
