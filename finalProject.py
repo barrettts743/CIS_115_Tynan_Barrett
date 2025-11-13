@@ -13,6 +13,9 @@ shopper_catalog = {1: "USB 128 GB drive - $12.00",
                    4: "Ring Camera Model 78 - $156.00",
                    5: "TCL Smart TV - $359.00"
                    }
+
+
+
 #create prompt for shopper to view product catalog and select item by product ID 
 print("-" * 40)
 print("Product Catalog" .center(40))
@@ -21,6 +24,7 @@ for product_id, details in shopper_catalog.items():
     print(f"{product_id} | {details}")
 print()
 print("-" * 40)
+
 #create an empty dictionary to hold shoppers items the wish to purchase
 shopping_cart = {}
 
@@ -40,7 +44,7 @@ def add_items():
     confirm_purchase = input("Do you wish to add another item to your cart (y or n)? ")
     if confirm_purchase == 'y':
         input("Enter another product id of the item you wish to purchase: ")
-        print(f'You have add {shopper_catalog[selected_product]} to cart')
+        print(f'You have added {shopper_catalog[selected_product]} to cart')
         #check to make sure item isnt in cart already
         if product_id == selected_product:
           print('Item is already in your cart, Would you like to increase the quantity? ')
@@ -58,6 +62,7 @@ print("-" * 40)
 
 
 #ask for shopper billing/shipping information
+shopper_info = {}
 print("Please enter your billing and shipping information.")
 first_name = input("First Name: ")
 last_name = input("Last Name: ")
@@ -65,18 +70,20 @@ address = input("Address: ")
 city = input("City: ")
 state = input("State: ")
 zip_code = input("Zip Code: ")
-#store shopper information in dictionary
-shopper_info = {
-    "first_name": first_name,
-    "last_name": last_name,
-    "address": address,
-    "city": city,
-    "state": state,
-    "zip_code": zip_code
-}
 print("-" * 40)
+#dictionary for shopper information
+shopper_info = {
+        "first_name": first_name,
+        "last_name": last_name,
+        "address": address,
+        "city": city,
+        "state": state,
+        "zip_code": zip_code
+}
+
 #proceed to have shopper enter payment details
 print("Please enter your payment details.")
+
 #execute mod 10 check for cc number validation
 def validateCreditCard(ccNum):
     ccNum = input("Enter your credit card number: ")
@@ -110,10 +117,12 @@ expiry_date = input("Expiry Date (MM/YY): ")
 cvv = input("CVV: ")
 #confirm purchase to user
 print("Payment was successful.")
+print("Here is your receipt.")
 #create invoice receipt for customer
 def invoice_receipt():
+    print(shopper_info)
     print('-'*40)
-    print({shopping_cart})
+    print(shopping_cart)
     print(total_cost)
     print('-'*40)
 invoice_receipt()
