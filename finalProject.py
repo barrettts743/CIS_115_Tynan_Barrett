@@ -1,11 +1,11 @@
 #create array of dictionaries to hold details of inventory catalog
 inventory_data = [
-        {"product_id: 1", "SKU: usb_k981", "price: 12.00", "description: USB 128 GB drive", "qoh: 1000"},
-        {"product_id: 2", "SKU: mbpro_490", "price: 2900.00", "description: Mac Book Pro 15 inch", "qoh: 45"},
-        {"product_id: 3", "SKU: chip_1010", "price: 48.00", "description: Arduino microprocessor", "qoh: 325"},
-        {"product_id: 4", "SKU: cam_78", "price: 156.00", "description: Ring Camera Model 78", "qoh: 98"},
-        {"product_id: 5", "SKU: smt_tv_100", "price: 359.00", "description: TCL Smart TV", "qoh: 225"}
-        ]
+    {"product_id": 1, "sku": "usb_k981", "price": 12.00, "description": "USB 128 GB drive", "qoh": 1000},
+    {"product_id": 2, "sku": "mbpro_490", "price": 2900.00, "description": "Mac Book Pro 15 inch", "qoh": 45},
+    {"product_id": 3, "sku": "chip_1010", "price": 48.00, "description": "Arduino microprocessor", "qoh": 325},
+    {"product_id": 4, "sku": "cam_78", "price": 156.00, "description": "Ring Camera Model 78", "qoh": 98},
+    {"product_id": 5, "sku": "smt_tv_100", "price": 359.00, "description": "TCL Smart TV", "qoh": 225},
+]
 #create new dictionary to hold formatted inventory details for shopper
 shopper_catalog = {1: "USB 128 GB drive - $12.00",
                    2: "Mac Book Pro 15 inch - $2900.00",
@@ -13,8 +13,6 @@ shopper_catalog = {1: "USB 128 GB drive - $12.00",
                    4: "Ring Camera Model 78 - $156.00",
                    5: "TCL Smart TV - $359.00"
                    }
-
-
 
 #create prompt for shopper to view product catalog and select item by product ID 
 print("-" * 40)
@@ -28,38 +26,40 @@ print("-" * 40)
 #create an empty dictionary to hold shoppers items the wish to purchase
 shopping_cart = {}
 
+
 #prompt shopper to select item by product ID and the quantity desired
 selected_product = int(input(f"Enter the Product ID of the item you wish to purchase: "))
 selected_quantity = int(input(f'Enter the quantity you would like to purchase: '))
 
 #confirm quantity is available in inventory
-available_qoh = (list(inventory_data[selected_product - 1])[4].split(": ")[1])
+available_qoh = (list(inventory_data[selected_product - 1])[4].split(": "))
 print("-" * 40)
 #confirm shopper selection
 print(f"You have selected {selected_quantity} of {shopper_catalog[selected_product]}.")
 print("-" * 40)
 
 #ask user if they would like to add anymore items to their shopping cart
-def add_items():
-    confirm_purchase = input("Do you wish to add another item to your cart (y or n)? ")
-    if confirm_purchase == 'y':
-        input("Enter another product id of the item you wish to purchase: ")
-        print(f'You have added {shopper_catalog[selected_product]} to cart')
-        #check to make sure item isnt in cart already
-        if product_id == selected_product:
-          print('Item is already in your cart, Would you like to increase the quantity? ')
+input = ('Would you like to add another item (y or n)?')
+def added_items():
+    if added_items == 'y':
+        print('What item would you like to add?')
+        #check to see if item was already in cart
+        if added_items == selected_product:
+            print('Item is already in cart')
         else:
-            print('Item added to cart.')
-    if confirm_purchase == 'n':
-        print("Proceed with checkout.")
-add_items()
+            print('Item was added to cart.')
+    if added_items == 'n':
+        print('Proceed to checkout')
+added_items()
+print(f'You have added {shopper_catalog[selected_product]} to cart')
+    
+
 #calculate total cost of shopper selection
 item_price_str = shopper_catalog[selected_product].split(" - $")[1]
 item_price = float(item_price_str)
 total_cost = item_price * selected_quantity
 print(f"Your total cost is: ${total_cost:.2f}")
 print("-" * 40)
-
 
 #ask for shopper billing/shipping information
 shopper_info = {}
