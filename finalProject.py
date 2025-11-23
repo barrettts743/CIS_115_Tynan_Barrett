@@ -7,7 +7,7 @@ shopping_data = [
     {"product_id": 5, "sku": "smt_tv_100", "price": 359.00, "description": "TCL Smart TV", "qoh": 225},
 ]
 #create shopping cart dictionary to hold shopper selection
-shopping_cart = {}
+shopping_cart = []
 
 #create new dictionary to hold formatted inventory details for shopper
 shopper_catalog = {1: "USB 128 GB drive - $12.00",
@@ -50,7 +50,6 @@ def available_qoh():
         print(f"Sorry, we only have {inventory_data[selected_product - 1]['qoh']} of {shopper_catalog[selected_product]} available.")
         return False
     else:
-        print(f"{selected_quantity} of {shopper_catalog[selected_product]} is available.")
         return True
 if available_qoh():
     print(f"{selected_quantity} of {shopper_catalog[selected_product]} has been added to your shopping cart.")
@@ -75,7 +74,6 @@ def added_items():
     return
 added_items()
 
-
 #calculate total cost of shopper selection
 def total_cost():
     item_price_str = shopper_catalog[selected_product].split(" - $")
@@ -89,14 +87,14 @@ total_cost()
 #ask for shopper billing/shipping information
 #dictionary for shopper information
 shopper_info = {
-    'first_name': input("Enter your First Name: "),
-    'last_name': input("Enter your Last Name: "),
-    'address': input("Enter your address: "),
-    'city': input("Enter your city: "),
-    'state': input("Enter your state: "),
-    'zip_code': input("Enter your zip code: "),
-    'email': input("Enter your email: "),
-    'phone': input("Enter your phone number: ")
+    'first_name': 'First Name',
+    'last_name': 'Last Name',
+    'address': 'Address',
+    'city': 'City',
+    'state': 'State',
+    'zip_code': 'Zip Code',
+    'email': 'Email',
+    'phone': 'Phone Number'
 }
 print("Please enter your billing and shipping information.")    
 first_name = input("First Name: ")
@@ -105,6 +103,8 @@ address = input("Address: ")
 city = input("City: ")
 state = input("State: ")
 zip_code = input("Zip Code: ")
+email = input("Email: ")
+phone = input("Phone Number: ")
 print("-" * 40)
 
 #proceed to have shopper enter payment details
@@ -150,6 +150,8 @@ print("Invoice Receipt".center(40))
 print("-" * 40)
 print(f"Name: {first_name} {last_name}")
 print(f"Address: {address}, {city}, {state} {zip_code}")
+print(f"Email: {email}")
+print(f"Phone: {phone}")
 print(f"Product: {shopper_catalog[selected_product]}")
 print(f"Quantity: {selected_quantity}")
 item_price_str = shopper_catalog[selected_product].split(" - $")
@@ -160,7 +162,4 @@ print(f"Total Cost: ${total_cost:.2f}")
 print("-" * 40)
 print("Thank you for your purchase! Your order has been confirmed.")
 print("-" * 40)
-
-
-
 
