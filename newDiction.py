@@ -32,3 +32,17 @@ def print_dictionary(names_addresses):
 
 #print the dictionary
 print_dictionary(names_addresses)
+
+
+
+
+
+
+added_items == 'n':
+print(input('Would you like to check out (y or n)?: '))
+if input == 'y':
+            print("Proceeding to checkout...")
+    else:
+            print("Returning to shopping cart...")
+            print("-" * 40)
+    return

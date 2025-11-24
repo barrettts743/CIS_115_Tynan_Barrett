@@ -7,7 +7,7 @@ shopping_data = [
     {"product_id": 5, "sku": "smt_tv_100", "price": 359.00, "description": "TCL Smart TV", "qoh": 225},
 ]
 #create shopping cart dictionary to hold shopper selection
-shopping_cart = []
+shopping_cart = ['product_id', 'quantity']
 
 #create new dictionary to hold formatted inventory details for shopper
 shopper_catalog = {1: "USB 128 GB drive - $12.00",
@@ -33,10 +33,10 @@ selected_quantity = int(input(f'Enter the quantity you would like to purchase: '
 print(f"You have selected {selected_quantity} of {shopper_catalog[selected_product]}.")
 print("-" * 40)
 #create a dictionary to hold shopper selection
-shopping_cart = {
-    'product_id': selected_product,
-    'quantity': selected_quantity
-}
+shopping_cart = [
+    {'product_id': selected_product},
+    {'quantity': selected_quantity}
+]
 #check the quantity of the selected product is available in inventory
 inventory_data = [
     {'product_id': 1, 'qoh': 1000},
@@ -59,19 +59,19 @@ print("-" * 40)
 def added_items():
     added_items = input('Would you like to add another item (y or n)?: ')
     if added_items == 'y':
-        #add the new item and quantity to the shopping cart
-        shopping_cart['product_id'] = input('What item would you like to add?: ')
-        shopping_cart['quantity'] = input('Enter the quantity you would like to add?: ')
-        print(f"{selected_quantity} of {shopper_catalog[selected_product]} has been added to your shopping cart.")
-        print("-" * 40)
-    if added_items == 'n':
+            #add the new item and quantity to the shopping cart
+            shopping_cart[{selected_product}] = input('What item would you like to add?: ')
+            shopping_cart[{selected_quantity}]= input('Enter the quantity you would like to add?: ')
+    print(f"{selected_quantity} of {shopper_catalog[selected_product]} has been added to your shopping cart.")
+    print("-" * 40)
+    return
+if added_items == 'n':
         print(input('Would you like to check out (y or n)?: '))
         if input == 'y':
             print("Proceeding to checkout...")
-    else:
+        else:
             print("Returning to shopping cart...")
             print("-" * 40)
-    return
 added_items()
 
 #calculate total cost of shopper selection
