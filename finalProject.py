@@ -6,7 +6,7 @@ shopping_data = [
     {"product_id": 4, "sku": "cam_78", "price": 156.00, "description": "Ring Camera Model 78", "qoh": 98},
     {"product_id": 5, "sku": "smt_tv_100", "price": 359.00, "description": "TCL Smart TV", "qoh": 225},
 ]
-#create shopping cart dictionary to hold shopper selection
+#create empty shopping cart list to hold shopper selection
 shopping_cart = []
 
 #create new dictionary to hold formatted inventory details for shopper
@@ -32,12 +32,11 @@ selected_quantity = int(input(f'Enter the quantity you would like to purchase: '
 #confirm shopper selection
 print(f"You have selected {selected_quantity} of {shopper_catalog[selected_product]}.")
 print("-" * 40)
-#create a dictionary to hold shopper selection
+#create a dictionary/lists to hold shopper selection
 shopping_cart = {
     'product_id': selected_product,
     'quantity': selected_quantity
 }
-#check the quantity of the selected product is available in inventory
 inventory_data = [
     {'product_id': 1, 'qoh': 1000},
     {'product_id': 2, 'qoh': 45},
@@ -45,6 +44,7 @@ inventory_data = [
     {'product_id': 4, 'qoh': 98},
     {'product_id': 5, 'qoh': 225},
 ]
+#check the quantity of the selected product is available in inventory
 def available_qoh():
     if selected_quantity > inventory_data[selected_product - 1]['qoh']:
         print(f"Sorry, we only have {inventory_data[selected_product - 1]['qoh']} of {shopper_catalog[selected_product]} available.")
