@@ -26,6 +26,7 @@ print("-" * 40)
 #prompt shopper to select item by product ID and the quantity desired
 selected_product = int(input(f"Enter the Product ID of the item you wish to purchase: "))
 selected_quantity = int(input(f'Enter the quantity you would like to purchase: '))
+<<<<<<< Updated upstream
 #Check the quantity of the selected product is available in inventory
 if selected_quantity > inventory_data[selected_product]:
     print(f"Sorry, only {inventory_data[selected_product]} of {shopper_catalog[selected_product]} available.")
@@ -72,9 +73,64 @@ def added_items():
                 print("Returning to shopping cart...")
                 print("-" * 40)
     return
+=======
+#store shopper selection in shopping cart dictionary
+shopping_cart = [
+    {'product_id': selected_product},
+    {'quantity': selected_quantity}
+]
+#confirm shopper selection
+print(f"You have selected {selected_quantity} of {shopper_catalog[selected_product]}.")
+print("-" * 40)
+#check the quantity of the selected product is available in inventory
+inventory_data = [
+    {'product_id': 1, 'qoh': 1000},
+    {'product_id': 2, 'qoh': 45},
+    {'product_id': 3, 'qoh': 325},
+    {'product_id': 4, 'qoh': 98},
+    {'product_id': 5, 'qoh': 225},
+]
+def available_qoh():
+    if selected_quantity > inventory_data[selected_product - 1]['qoh']:
+        print(f"Sorry, we only have {inventory_data[selected_product - 1]['qoh']} of {shopper_catalog[selected_product]} available.")
+        return False
+    else:
+        return True
+if available_qoh():
+    print(f"{selected_quantity} of {shopper_catalog[selected_product]} has been added to your shopping cart.")
+print("-" * 40)
 
-#calculate total cost of shopper selection
+#promt user if they would like to add anymore items to their shopping cart and the quantity desired
+def added_items():
+    added_items = input('Would you like to add another item (y or n)?: ')
+    if added_items == 'y':
+            #prompt user to a new item to shopping cart and store selection in shopping cart dictionary
+            new_product = int(input(f"Enter the Product ID of the item you wish to add: "))
+            new_quantity = int(input(f'Enter the quantity you would like to add: '))
+            #check the quantity of the selected product is available in inventory
+            if new_quantity > inventory_data[new_product - 1]['qoh']:
+                print(f"Sorry, we only have {inventory_data[new_product - 1]['qoh']} of {shopper_catalog[new_product]} available.")
+                return added_items()
+            #store additional item selection in shopping cart dictionary
+            shopping_cart.append({'product_id': new_product})
+            shopping_cart.append({'quantity': new_quantity})
+            print(f"You have selected {new_quantity} of {shopper_catalog[new_product]}.")
+            print(f"{new_quantity} of {shopper_catalog[new_product]} has been added to your shopping cart.")
+    print("-" * 40)
+    if added_items == 'n':
+        print(input('Would you like to check out (y or n)?: '))
+        if input == 'y':
+            print("Proceeding to checkout...")
+        else:
+            print("Returning to shopping cart...")
+            return
+added_items()
+>>>>>>> Stashed changes
+
+
+#calculate total cost of all shopper's selected items
 def total_cost():
+<<<<<<< Updated upstream
     total_cost = 0.0
 
     for item in shopping_cart:
@@ -84,6 +140,13 @@ def total_cost():
         total_item = price * quantity
         total_cost += total_item
     print(f"Your total cost is: ${total_cost:.2f}")
+=======
+    item_price_str = shopper_catalog[selected_product].split(" - $")
+    item_price_str = item_price_str[1]
+    item_price = float(item_price_str)
+    total_cost = item_price * selected_quantity
+    print(f"The total cost of your order is: ${total_cost:.2f}")
+>>>>>>> Stashed changes
     print("-" * 40)
 added_items()
 #ask for shopper billing/shipping information
