@@ -1,17 +1,17 @@
-#this program allows user to input 3 integers 
-num1 = int(input('Enter first number: '))
-num2 = int(input('Enter second number: '))
-num3 = int(input('Enter third number: '))
+#this program allows user use % to determine if operation is even or odd.
+#grab 2 numbers from user
+num1 = float(input('Enter first number: '))
+num2 = float(input('Enter second number: '))
 
-#find the sum of num1 and num2
-sum = int(num1) + int(num2)
-total = int(sum)/int(num3)
-print(total)
+#assign variable to hold total value through division.
+dividend = num1 // num2
 
-#determine if statement is greater than zero
+#Get the remainder of num1 divided by num2.
+remainder = dividend % 2
 
-if (total) >= 0:
-    print('The mathematical operation is > 0')
+#determine if total is even or odd.
+if remainder % 2 == 0:
+    print('Even')
 
 else:
-    print('The mathematical operation is <= 0')
+    print('Odd')
